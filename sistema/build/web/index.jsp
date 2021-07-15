@@ -4,77 +4,71 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CALLCENTER</title>
+        <title>INCOMARK CRM</title>
         <!--icono de la pestaña del explorador-->
         <link rel="shortcut icon" href="image/logoInco.fw.png">
         <link rel="apple-touch-icon" href="">
         <link href="css/css/icons-material.css" type="text/css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="css/css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/css/login_1.css">
     </head>
-
+    <!--hola soy emmaunel-->
     <body id="loginjsp" class="style">
-        <div class="container">
-            <div class="row margin_bot_0"  >
-                <div class="outer">
-                    <div class="middle">
-                        <div class="inner">
-                            <div id="box_image" class="col s12 m6 l6  offset-m3 offset-l3 padding_40">
-                                <img class="width_100" src="image/logoSicsa/logo_sicsa2.png">
-                            </div>
-                            <form id="login" class="" style="" name="login" action="/sistema/main.jsp" method="post">
-                                <div class="col s12 m6 l6  offset-m3 offset-l3 padding_40">
-                                    <input id="ip" type="hidden">
-                                    
-                                    <div class="input-field width_100">
-                                        <i class="material-icons prefix icon-white ">account_circle</i>
-                                        <input id="id_usuario" type="text" name="id_usuario" class="validate input_color" onkeypress="return isNumberKey(event)">
-                                        <label class="width_50" for="id_usuario">ID</label>
-                                    </div>
-                                    <div class="input-field width_100">
-                                        <i class="material-icons prefix icon-white ">fingerprint</i>
-                                        <input id="password" type="password" name="password" class="validate input_color">
-                                        <label class="width_50" for="password">Contraseña</label>
-                                    </div>
-                                    <a id="iniciar_sesion" class="waves-effect  waves-light btn width_100"><i class="material-icons right">send</i>Ingresar</a>
-                                    <div id="cargando" class="preloader-wrapper big active" style="display: none;">
-                                        <div class="spinner-layer spinner-blue-only">
-                                            <div class="circle-clipper left">
-                                                <div class="circle"></div>
-                                            </div><div class="gap-patch">
-                                                <div class="circle"></div>
-                                            </div><div class="circle-clipper right">
-                                                <div class="circle"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="align_center white-text">Volver al menu principal</p>
-                                </div>
-                                <div>                
-                                    <div style=" left: 10px; width: auto; font-size: 10px; color:#2a010180;display:none;">
-                                        <input id="id_perfil" value="2" type="hidden" name="id_perfil" tabindex="3">
-                                        <div class="input-field ">
-                                            <select id="marcacion" class="icons estilo center-align" style=";background-color: #2a010180;">
-                                                <option value="/sistema/main.jsp" data-icon="images/manual.png" class="left circle">     MANUAL</option>
-                                                <option value="/sistema/marcador.jsp" data-icon="images/pre.png" class="left circle">     PREDIC</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div> 
-                            </form>                                          
-                        </div>
-                    </div>      
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form id="solicitud"  name="solicitud" action="/sistema/solicitud.jsp" method="post">
+                    <img  width="100%" src="image/incomark.png">
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>Registrate</span>
+                    <input id="nombre_solicitante" type="text"  name="nombre_solicitante" placeholder="Nombre" />
+                    <input id="email_solicitante" type="email"  name="email_solicitante"  placeholder="Email" />
+                    <input id="telefono_solicitante" type="Telefono"   name="telefono_solicitante" placeholder="Telefono"/>
+                    <!--<button id="iniciar_solicitud" class="z-depth-2">Enviar</button>-->
+                    <a id="iniciar_solicitud" class="boton_login z-depth-2 hoverable">Enviar</a>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form id="login" class="" style="" name="login" action="/sistema/main.jsp" method="post">
+                    <input id="ip" type="hidden">
+                    <input id="id_perfil" name="id_perfil" type="hidden" value="2">
+                    <img width="100%" src="image/incomark.png">
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>Inicia tu Sesion </span>
+                    <input id="id_usuario" type="text" name="id_usuario" placeholder="Usuario" />
+                    <input id="password" type="password" name="password" placeholder="Contraseña" />
+                    <a href="#">Olivdaste tu contraseña?</a>
+                    <!--<button id="iniciar_sesion" class="z-depth-2">Acceder</button>-->
+                    <a id="iniciar_sesion" class="boton_login z-depth-2 hoverable">Acceder</a>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Regresa!</h1>
+                        <p>Si ya tienes cuenta regresa para iniciar tu session</p>
+                        <button class="ghost z-depth-2" id="signIn">Regresar</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Trabaja con Nosotros!</h1>
+                        <p>Ingresa tu informacion para ser parte de nuesto Equipo</p>
+                        <button class="ghost z-depth-2" id="signUp">Acceder</button>
+                    </div>
                 </div>
-            </div>    
+            </div>
         </div>
         <%
             //System.out.println(request.getSession().getAttribute("id_usuario"));
+
             if (request.getSession().getAttribute("id_usuario") != null) {
-                System.out.println(request.getSession().getAttribute("puesto"));
                 out.write("<script> location.replace('" + request.getSession().getAttribute("puesto") + ".jsp'); </script>");
-            } else if (request.getParameter("cerrar") != null) {
-                HttpSession sesion = request.getSession();
-                sesion.invalidate();
             }
         %>
         <script src="js/js/jquery-2.2.4.min.js"></script>
@@ -82,3 +76,4 @@
         <script type="text/javascript" src="js/js/login.js"></script>
     </body>
 </html>
+

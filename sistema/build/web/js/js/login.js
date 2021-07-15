@@ -1,7 +1,19 @@
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
+});
 $(document).on('ready', function () {
     var costume = Math.floor(Math.random() * 3) + 1;
     $("#box_image").empty();
-    $("#box_image").append('<img class="width_100" src="image/incomark.png">');
+    $("#box_image").append('<img class="width_100" src="image/logoSicsa/logo_sicsa' + costume + '.png">');
     $("#iniciar_sesion").addClass('button_log' + costume);
 
     $.getJSON('https://api.ipify.org?format=json', function (data) {
@@ -10,6 +22,11 @@ $(document).on('ready', function () {
     });
     window.onload = function () {
     };
+    window.setTimeout(function () {
+        $(".container").show(5000);
+        $("#preloader").hide();
+        $("body").addClass("login" + costume);
+    }, 5000);
 
 });
 //==============================================================================
@@ -38,14 +55,18 @@ function iniciar_sesion() {
             password: $("#password").val(),
             ip: $("#ip").val()
         };
-        console.log(params);
+        
         $.ajax({
             type: "POST",
             url: "/sistema/ControllerUsuario",
             data: params,
             dataType: "html",
             success: function (dataRes) {
-                mostrar_alerta(dataRes);
+                console.log(dataRes);
+                mostrar_alerta(parseInt(dataRes));
+            },
+            error: function (error) {
+                console.log(error);
             }
         });
     }
@@ -53,39 +74,38 @@ function iniciar_sesion() {
 ;
 //==============================================================================
 function mostrar_alerta(dataRes) {
-    if (dataRes == 0) {
+    if (dataRes === 0) {
         alert("FALTA CHECAR ENTRADA");
         $("#cargando").hide();
         $("#iniciar_sesion").show();
     }
-    if (dataRes == 1) {
+    if (dataRes === 1) {
         document.login.submit();
     }
-    if (dataRes == 2) {
+    if (dataRes === 2) {
         alert("YA TIENE UNA SESION INICIADA, SOLO PUEDE TENER UNA A LA VEZ.");
         $("#cargando").hide();
         $("#iniciar_sesion").show();
     }
-    if (dataRes == 3) {
+    if (dataRes === 3) {
         alert("CONTRASEÑA ERRONEA. FAVOR DE VERIFICAR.");
         $("#cargando").hide();
         $("#iniciar_sesion").show();
     }
-    if (dataRes == 4) {
+    if (dataRes === 4) {
         alert("EMPLEADO INACTIVO. FAVOR DE VERIFICAR.");
         $("#cargando").hide();
         $("#iniciar_sesion").show();
     }
-    if (dataRes == 5) {
+    if (dataRes === 5) {
         alert("USUARIO NO EXISTE");
         $("#cargando").hide();
         $("#iniciar_sesion").show();
     }
-    if (dataRes == 6) {
-        alert("HA ALCANZADO NUMERO MAXIMO DE USUARIOS EN SU LICENCIA.\n\
-\n\
-SOLICITE AL ADMINSITRADOR UNA LICENCIA PARA MAS USUARIOS.\n\
-");
+    if (dataRes === 6) {
+        alert("HA ALCANZADO NUMERO MAXIMO DE USUARIOS EN SU LICENCIA.\n\n\
+            SOLICITE AL ADMINSITRADOR UNA LICENCIA PARA MAS USUARIOS.\n\
+        ");
 
         $("#cargando").hide();
         $("#iniciar_sesion").show();
@@ -103,3 +123,24 @@ function isNumberKey(evt) {
 
 //==============================================================================
 
+$("#iniciar_solicitud").click(function () {
+//    alert("Falta esta Parte que ejecute en Submit");
+    let data_solicitud = {
+        nombre_solicitante: $("#nombre_solicitante").val(),
+        email_solicitante: $("#email_solicitante").val(),
+        telefono_solicitante: $("#telefono_solicitante").val()
+    };
+    console.log(data_solicitud);
+    if (
+            data_solicitud.nombre_solicitante === "" ||
+            data_solicitud.email_solicitante === "" ||
+            data_solicitud.telefono_solicitante === ""
+        ) {
+        alert(`hay datos vacios`);
+    }
+    else {
+        document.solicitud.submit();
+    }
+    
+    
+});

@@ -3,7 +3,7 @@
     background-color: #64b5f6;
 }
 .table_user {
-    margin-top: 3vh;
+    margin-top: 1vh;
     height: 84vh;
     max-height: 84vh;
     overflow: auto;
@@ -295,8 +295,7 @@ table.highlight>tbody>tr {
 
 table.highlight>tbody>tr:hover {
     transition: 0.99s;
-    /*background-color: rgba(75, 219, 255, 0.404) !important;*/
-    background-image: linear-gradient(rgba(75, 219, 255, 0.5), rgba(255, 255, 255, 0.77), rgba(75, 219, 255, 0.5));
+    background-color: rgba(75, 219, 255, 0.404) !important;
     cursor: pointer;
     
 }
@@ -348,11 +347,11 @@ table.highlight>tbody>tr:hover {
 #test-swipe-2 label{
     color: #414141;
 }
-
+/*
 .icon_nav {
     line-height: 50px !important;
     margin-left: 5px;
-}
+}*/
 
 .search {
     width: 50% !important;
@@ -371,14 +370,14 @@ table.highlight>tbody>tr:hover {
     height: 40px;
 }
 
-.ul_margin_top{
+/*.ul_margin_top{
     margin-top:-46px;
-}
-
+}*/
+/*
 .size_ul{
      height: 40px !important;
      line-height: 40px !important;
-}
+}*/
 
 .img_log{
     width: 40px;
@@ -411,10 +410,10 @@ nav {
     color: #414141;
 }
 
-.icon_nav {
+/*.icon_nav {
     line-height: 50px !important;
     margin-left: 5px;
-}
+}*/
 
 .search {
     width: 50% !important;
@@ -433,14 +432,14 @@ nav {
     height: 40px;
 }
 
-.ul_margin_top{
+/*.ul_margin_top{
     margin-top:-46px;
-}
+}*/
 
-.size_ul{
+/*.size_ul{
      height: 40px !important;
      line-height: 40px !important;
-}
+}*/
 
 .img_log{
     width: 40px;
@@ -493,4 +492,40 @@ nav input[type="text"]:not(.browser-default):focus:not([readonly]) {
 }
 td {
     cursor: pointer;
+}
+
+#modal_nuevo_usuario input, #modal_nuevo_usuario_domiciliario input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-transition: border .3s, -webkit-box-shadow .3s;
+    transition: border .3s, -webkit-box-shadow .3s;
+    transition: box-shadow .3s, border .3s;
+    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+}
+
+.add_user {
+    margin-right: 15px;
+}
+
+
+.opcion_user {
+    height: 15vh;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.modal{
+    overflow: visible!important; 
 }

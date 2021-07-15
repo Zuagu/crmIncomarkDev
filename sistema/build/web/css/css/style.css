@@ -456,16 +456,16 @@ nav {
 }
 
 .icon_nav {
-    line-height: 50px !important;
+    line-height: 44px !important;
     margin-left: 5px;
 }
 
 .search {
     width: 50% !important;
-    height: 2.3rem !important;
-    margin-left: 25% !important;
+    height: 1.6rem !important;
+    margin-left: 0% !important;
     line-height: 40px !important;
-    border-radius: 25px !important;
+    border-radius: 4px !important;
     color: #000000 !important;
 }
 
@@ -474,7 +474,7 @@ nav {
     padding:0;
     position:absolute;
     font-size:2.1rem;
-    height: 40px;
+    height: 30px;
 }
 
 .ul_margin_top{
@@ -482,14 +482,14 @@ nav {
 }
 
 .size_ul{
-    height: 40px !important;
+    height: 30px !important;
     line-height: 40px !important;
 }
 
 .img_log{
-    width: 40px;
+    width: 30px;
     margin: 12%;  
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
 .margin-icon{
@@ -523,10 +523,7 @@ nav input[type="text"]:not(.browser-default):focus:not([readonly]) {
     margin-bottom: 1.5rem;
 }
 
-*/.div_tabs {
-    height: 25px;
 
-}/*
 
 .nex,
 .prev {
@@ -611,17 +608,16 @@ color_icon{
 
 .search_cuentas{
     width:100% !important;
-    border-radius: 20px !important;
-    height: 1.75rem !important;
+    border-radius: 8px !important;
     line-height: 40px !important;
     border: 1px solid #2196f3 !important;
 }
 .div_search_gestor{
-    height: 92vh;
-    transition: 0.8s;
+    border-radius: 4px;
     overflow: auto;
 }
 .contenido-datos {
+    margin-top: 5px !important;
     transition: 0.8s;
 }
 .div_input_gestor_tiempos input[type="text"]:not(.browser-default)[readonly="readonly"]{
@@ -638,7 +634,7 @@ color_icon{
 
 }
 .div_input_gestor_info input[type="text"]:not(.browser-default)[readonly="readonly"]{
-    border-radius: 4px;
+    border-radius: 2px;
 
     color: black;
 
@@ -652,7 +648,9 @@ color_icon{
 .div_input_gestor_info{
     border-radius: 4px;
     display: none;
+    margin-bottom: 4px;
 }
+
 
 .icon_gestor_tab{
     color:#2196f3;
@@ -674,16 +672,16 @@ color_icon{
 }
 
 .div_gestor_gestion{
-    height: 10vh;
+    border-radius: 4px;
 }
 .div_tabs{
-    margin-top: 8px;
+    margin-top: 2px;
 }
 div_info_secundaria{
     height: 26vh; 
 }
 .ul_tabs{
-    height: 5vh;
+    height: 6vh;
 }
 .div_gestor_textarea{
     height: 14vh;
@@ -706,12 +704,12 @@ div_info_secundaria{
 }
 
 .btn_guardar_gestiones{
-    margin-top: 6vh;
+    margin-top: 1vh;
     background: linear-gradient(45deg,rgb(67, 160, 71), rgb(29, 233, 182));
 }
 
 .btn_siguiente {
-    margin-top: 6vh;
+    margin-top: 1vh;
     background: linear-gradient(45deg,rgb(255, 82, 82), rgb(244, 143, 177));
 }
 
@@ -766,6 +764,10 @@ div_info_secundaria{
 }
 
 #tabla_gestiones span img, #div_cuentas_encontradas span img[alt="MX"]{
+    display: none;
+}
+
+span img[alt="MX"] {
     display: none;
 }
 
@@ -944,7 +946,12 @@ th,td {
 .margin_20_down{
     margin-bottom: 20px;   
 }
-
+.margin_17_top{
+    margin-top: 17px;   
+}
+.margin_13_top{
+    margin-top: 13px;   
+}
 .date_picks_dash_sup{
     width: 50% !important;
     border-radius:8px !important;
@@ -1097,3 +1104,66 @@ th,td {
 
 } 
 
+.modal{
+    overflow: visible!important; 
+}
+
+input{
+    height: 1.5rem !important;
+}
+.gestor_font{
+    font-size: 14px !important;
+}
+
+.input-field {  
+    margin-top: 0.1rem;
+}
+h6{
+    margin-bottom: 10px;
+}
+
+nav {
+    height: 33px !important;
+}
+
+.temp{
+    height: 30px !important;
+}
+.btn-small {
+    height: 25.4px;
+    line-height: 25.4px;
+}
+
+input{
+    font-size: 14px !important;
+}
+
+.marcacion_directa .collection .collection-item a {
+    margin-left: 1rem;
+}
+.marcacion_directa .collection .collection-item {
+    padding: 3px 20px;
+}
+.marcacion_directa .small {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+.div_btn {
+    margin-bottom: 1rem;
+}
+.modal input {
+    height: 3rem !important;
+}
+#datos_marcacion_directa {
+    margin: .5rem 0 0.2rem 0 !important;
+}
+
+
+#modal_busqueda {
+    width: 70%;
+}
+.tabla_resultado_busqueda {
+    overflow: auto;
+    height: 45vh;
+    margin-bottom: 1rem;
+}

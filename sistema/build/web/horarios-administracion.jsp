@@ -12,7 +12,7 @@
 
 
         <!--ICONS PARA MATERIALIZE-->
-        <link rel="shortcut icon" href="http://leimihost.com/mx/images/favicon.ico" />
+        <link rel="shortcut icon" href="image/logoInco.fw.png" />
         <link rel="stylesheet" type="text/css" href="css/arcade-style-frame.css" media="screen">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--ICONS PARA MATERIALIZE-->
@@ -40,13 +40,18 @@
         <script type="text/javascript" src="js/arcade-equipo.js"></script>
         <script type="text/javascript" src="js/arcade-gestor.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="css/css/style_multi.css">
+
         <style>
+            body {
+                background-color: #F9F4F4 !important;
+            }
             .picker__holder {
                 overflow-y: visible !important;
             }
             .tablass{
                 overflow: auto;
-                height : 10em;
+                height : 40vh;
             }
             .esp{
                 margin: 6px 6px !important;
@@ -89,10 +94,14 @@
                 /*                transform: scale(.1, .1);*/
                 width: 50%;
             }
+            #buscador_cuentas_gestor {
+                color: black;
+            }
         </style>
     </head>
     <body>
-        <nav id="ayuda_nav" class="grey lighten-1 hide_print" >
+        <jsp:include page="header.jsp"/>
+<!--        <nav id="ayuda_nav" class="grey lighten-1 hide_print" >
             <div class="nav-wrapper">
                 <div>
                     <a class="ayuda_name brand-logo" style="color:white;">Horario Administracion</a>
@@ -103,9 +112,10 @@
                     <li id="roboto">Manuales de usuario de este modulo</li>
                 </ul>
             </div>
-        </nav>
+        </nav>-->
 
         <div class="container" style="padding-top: 40px;">
+            <div><h5 class="center">HORARIOS</h5></div>
             <div  id="div_datos" class="datagrid col s12 z-depth-2"></div>
             <div class="row">
                 <div class="col s12 center-align">
@@ -175,7 +185,7 @@
             </div>
             <div id="modal4" class="modal">
                 <div class="modal-content">
-                   <div class="col s12">
+                    <div class="col s12">
                         <label>Dia:</label>
                         <select id='dia' class="validate">
                             <option value="8">Lunes a Sabado</option>
@@ -217,27 +227,27 @@
             //==================================================================
             $(document).ready(function () {
                 $('select').material_select();
-                select_horario_user($("#filtro").val(), 1, "div_datos");
+                select_horario_user($("#buscador_cuentas_gestor").val(), 1, "div_datos");
                 $('.modal').modal();
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                today: 'Today',
-                clear: 'Clear',
-                close: 'Ok',
-                closeOnSelect: false // Close upon selecting a date,
-            });
-            $('.timepicker').pickatime({
-                default: 'now', // Set default time: 'now', '1:30AM', '16:30'
-                fromnow: 0, // set default time to * milliseconds from now (using with default = 'now')
-                twelvehour: true, // Use AM/PM or 24-hour format
-                donetext: 'OK', // text for done-button
-                cleartext: 'Clear', // text for clear-button
-                canceltext: 'Cancel', // Text for cancel-button
-                autoclose: true, // automatic close timepicker
-                ampmclickable: true, // make AM PM clickable
-                aftershow: function () {} //Function for after opening timepicker
-            });
+                $('.datepicker').pickadate({
+                    selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 15, // Creates a dropdown of 15 years to control year,
+                    today: 'Today',
+                    clear: 'Clear',
+                    close: 'Ok',
+                    closeOnSelect: false // Close upon selecting a date,
+                });
+                $('.timepicker').pickatime({
+                    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+                    fromnow: 0, // set default time to * milliseconds from now (using with default = 'now')
+                    twelvehour: true, // Use AM/PM or 24-hour format
+                    donetext: 'OK', // text for done-button
+                    cleartext: 'Clear', // text for clear-button
+                    canceltext: 'Cancel', // Text for cancel-button
+                    autoclose: true, // automatic close timepicker
+                    ampmclickable: true, // make AM PM clickable
+                    aftershow: function () {} //Function for after opening timepicker
+                });
             });
             //==================================================================
             $(".help").on("click", function () {
@@ -250,9 +260,9 @@
                 window.open("ayuda.jsp?tema=" + jsp, "_blank");
             });
             //==================================================================
-            $("#filtro").on("keyup",
+            $("#buscador_cuentas_gestor").on("keyup",
                     function () {
-                        select_horario_user($("#filtro").val(), 1, "div_datos");
+                        select_horario_user($("#buscador_cuentas_gestor").val(), 1, "div_datos");
                     }
             );
             //==================================================================
@@ -290,9 +300,9 @@
                 select_horario_tabla($("#id_usu").val(), "checoc");
             });
             $(".renglon").live("click", function () {
-                if($(this).closest("tr").hasClass( "varios" )){
+                if ($(this).closest("tr").hasClass("varios")) {
                     $("#horario_multiple").removeClass("hide");
-                }else{
+                } else {
                     $("#horario_multiple").addClass("hide");
                 }
             });
@@ -300,11 +310,11 @@
                 var ids = '';
                 $('#modal3').modal("open");
                 $('*[class*="varios"]').each(function (index, li) {
-                   var idspu = $(li).closest("tr").attr("id");
-                   ids += idspu + ',';
+                    var idspu = $(li).closest("tr").attr("id");
+                    ids += idspu + ',';
                 });
                 console.log(ids);
-                select_horarios_combo(1,"Selecciona Horario","horarios_adminis");
+                select_horarios_combo(1, "Selecciona Horario", "horarios_adminis");
                 select_horario_tabla(ids, "tablita");
                 $("#usuarios_horarios").text(ids);
             });
@@ -319,7 +329,7 @@
                 console.log($("#id_usu").val(), $("#horario_admini").val());
                 $("#nombre_contrato").text($("#id_seleccion").val());
                 window.setTimeout(() => {
-                    select_horario_user($("#filtro").val(), 1, "div_datos");
+                    select_horario_user($("#buscador_cuentas_gestor").val(), 1, "div_datos");
                 }, 150);
                 $("#nombre_contrato").text($('#id_usu').val());
             });
@@ -327,7 +337,7 @@
                 insert_horario($("#usuarios_horarios").text(), $("#horarios_adminis").val());
                 console.log($("#usuarios_horarios").text(), $("#horarios_adminis").val());
                 window.setTimeout(() => {
-                    select_horario_user($("#filtro").val(), 1, "div_datos");
+                    select_horario_user($("#buscador_cuentas_gestor").val(), 1, "div_datos");
                 }, 150);
                 $("#usu_horario").text($('#usuarios_horarios').text());
                 $("#id_usu").val($('#usuarios_horarios').text());
@@ -336,16 +346,16 @@
                 $('#modal4').modal("open");
             });
             $("#botones_acthorarioesp").on("click",
-                function () {
-                    insert_horario_admin(
-                            $("#id_usu").val(),
-                            $("#dia").val(),
-                            $("#entrada").val(),
-                            $("#salida").val()
-                            );
-                    $("#nombre_contrato").text($("#id_usu").val());
-                }
-        );
+                    function () {
+                        insert_horario_admin(
+                                $("#id_usu").val(),
+                                $("#dia").val(),
+                                $("#entrada").val(),
+                                $("#salida").val()
+                                );
+                        $("#nombre_contrato").text($("#id_usu").val());
+                    }
+            );
             // ARCADE Software®
         </script>
         <!--CORE JAVASCRIPT-->

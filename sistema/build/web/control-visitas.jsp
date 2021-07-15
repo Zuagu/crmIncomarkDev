@@ -97,29 +97,29 @@
                         </div>
 
                         <div class="col s1" id="todo_asignaciones" style="width: 147px;padding: 0 1rem;">
-                            <input id="cadena_asignaciones" type="hidden">
+                            <input id="cadena_asignaciones" type="">
                             <br>
                             <div id="div_asignaciones"></div>
                         </div>
                         <div class="col s3" id="todo_ciudades" style="width: 235px;padding: 0 1rem;">
-                            <input id="cadena_ciudades" type="hidden">
+                            <input id="cadena_ciudades" type="">
                             <br>
                             <div id="div_ciudades" style="overflow:auto; height:170px;"></div>
                         </div>
                         <!--modificado-->
                         <div class="col s2" id="todo_codigos" style="width: 147px;padding: 0 1rem;">
-                            <input id="cadena_codigos" type="hidden">
+                            <input id="cadena_codigos" type="">
                             <br>
                             <div id="div_codigos" style="overflow:auto; height:170px;"></div>
                         </div>
                         <div class="col s2" id="todo_colonias" style="width: 247px;padding: 0 1rem;">
-                            <input id="cadena_colonias" type="hidden">
+                            <input id="cadena_colonias" type="">
                             <br>
                             <div id="div_colonias" style="overflow:auto; height:170px;"></div>
                         </div>
                         <!--fin de modificado-->
                         <div class="col s2" id="todo_ladas" style="width: 147px;padding: 0 1rem;">
-                            <input id="cadena_ladas" type="hidden">
+                            <input id="cadena_ladas" type="">
                             <br>
                             <div id="div_ladas" style="overflow:auto; height:170px;"></div>
                         </div>
@@ -281,7 +281,7 @@
                 $("#cadena_asignaciones").val('');
                 $('#div_asignaciones .check_asignacion').each(function () {
                     if ($(this).is(':checked')) {
-                        $("#cadena_asignaciones").val($("#cadena_asignaciones").val() + $(this).attr("id") + ", ");
+                        $("#cadena_asignaciones").val( $("#cadena_asignaciones").val() + "'" + $(this).attr("id") + "', ");
                     }
                 });
                 _texto = $("#cadena_asignaciones").val();

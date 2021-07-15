@@ -20,11 +20,12 @@ function select_usuarios(_box) {
 
 function pintar_tabla_usuarios(user_data, _box) {
     $("#" + _box).empty();
-    var row_print = '<table id="tabla_usuarios" class="highlight striped"><thead><tr><th>Id</th><th>Nombre</th><th>Puesto</th><th>Fecha Alta</th><th>Celular</th><th>Jefe Inmediato</th><th>Estatus</th></thead><tbody>';
+    var row_print = '<table id="tabla_usuarios" class="highlight striped"><thead><tr><th>Id</th><th>Nombre</th><th>Alias</th><th>Puesto</th><th>Fecha Alta</th><th>Celular</th><th>Jefe Inmediato</th><th>Estatus</th></thead><tbody>';
     for (var i in user_data) {
-        row_print += '<tr id="' + i + '" class="row_user '+user_data[i].active+'" style="' + (user_data[i].f_active == 0 ? "display:none; background-image: linear-gradient(rgba(255, 0, 0, 0.2), rgba(255, 255, 255, 0.77), rgba(255, 0, 0, 0.2));" : "") + '">';
+        row_print += '<tr id="' + i + '" class="row_user ' + user_data[i].active + '" style="' + (user_data[i].f_active == 0 ? "display:none; background-image: linear-gradient(rgba(255, 0, 0, 0.2), rgba(255, 255, 255, 0.77), rgba(255, 0, 0, 0.2));" : "") + '">';
         row_print += '<td>' + user_data[i].id + '</td>';
         row_print += '<td>' + user_data[i].nombre + '<br>' + user_data[i].sucursal + '</td>';
+        row_print += '<td>' + user_data[i].alias + '</td>';
         row_print += '<td>' + user_data[i].puesto + '</td>';
         row_print += '<td>' + user_data[i].fecha_alta + '</td>';
         row_print += '<td>' + user_data[i].celular + '</td>';
@@ -35,43 +36,36 @@ function pintar_tabla_usuarios(user_data, _box) {
     }
     $("#" + _box).append(row_print);
     row_print += '</tbody></table>';
-    console.log(users);
+//    console.log(users);
 //    console.log(jefes);
-    
+
 }
-var jefes={};
+var jefes = {};
 var users = [], horarios = [];
 var index_pos;
 var ident_tr = 0;
-$(document).ready(function () {
-    $('.modal').modal({
-        dismissible: false,
-        opacity: 0.4,
-        inDuration: 500,
-        outDuration: 250
-    });
-    $('.tabs').tabs();
-    $('select').formSelect({container: "body"});
+
+window.onload = function () {
     select_usuarios('table_user');
     select_horarios();
-    $('.datepicker').datepicker({
-        format: "yyyy-mm-dd",
-        container: "body"
-    });
-    $('.timepicker').timepicker({
-        container: "body",
-        twelveHour: false,
-        autoClose: true
-    });
-    $('input.autocomplete').autocomplete({
-        data: jefes
-    });
-    $('.collapsible').collapsible();
+};
 
+$("#gestor_call_center").click(function () {
+    $("#modal_nuevo_usuario").modal("open");
+    $("#modal_tipo_usuarios").modal("close");
+    select_puestos_disponbles();
+    select_jefes_puesto();
 });
+$("#gestor_domiciliario").click(function () {
+    $("#modal_nuevo_usuario_domiciliario").modal("open");
+    $("#modal_tipo_usuarios").modal("close");
+    select_puestos_disponbles();
+    select_jefes_puesto();
+});
+
 // pintar datos del usuarios en el modal =========================================================================================================
 function print_data_user_modal(index_pos) {
-    $(".cont_img").css('background-image', 'url("http://201.172.31.105:8080/sistema/images/usuarios/' + users[index_pos].id + '-min.png")');
+    $(".cont_img").css('background-image', 'url("image/icon-user.png")');
 //    $(".fondo").css('background-image', 'url("image/users/fondo_time.png');
 //    $(".fondo").css('background-size', '37%');
 //    $(".fondo").css('background-repeat', 'no-repeat');
@@ -96,16 +90,16 @@ function print_data_user_modal(index_pos) {
     $('#f_nacimiento').val(users[index_pos].f_nacimiento);
     $('#horario').val(users[index_pos].horario);
 
-    $('#f_naci').prop('checked', (users[index_pos].acta == "true"));
-    $('#ife').prop('checked', (users[index_pos].ife == "true"));
-    $('#nss').prop('checked', (users[index_pos].nss == "true"));
-    $('#fotos').prop('checked', (users[index_pos].fotos == "true"));
-    $('#curp').prop('checked', (users[index_pos].curp == "true"));
-    $('#com_est').prop('checked', (users[index_pos].comp_est == "true"));
-    $('#com_dom').prop('checked', (users[index_pos].comp_dom == "true"));
-    $('#carta').prop('checked', (users[index_pos].cartas == "true"));
-    $('#no_infv').prop('checked', (users[index_pos].infonavit == "true"));
-    $('#rfc').prop('checked', (users[index_pos].rfc == "true"));
+    $('#f_naci').prop('checked', (users[index_pos].acta === "true"));
+    $('#ife').prop('checked', (users[index_pos].ife === "true"));
+    $('#nss').prop('checked', (users[index_pos].nss === "true"));
+    $('#fotos').prop('checked', (users[index_pos].fotos === "true"));
+    $('#curp').prop('checked', (users[index_pos].curp === "true"));
+    $('#com_est').prop('checked', (users[index_pos].comp_est === "true"));
+    $('#com_dom').prop('checked', (users[index_pos].comp_dom === "true"));
+    $('#carta').prop('checked', (users[index_pos].cartas === "true"));
+    $('#no_infv').prop('checked', (users[index_pos].infonavit === "true"));
+    $('#rfc').prop('checked', (users[index_pos].rfc === "true"));
 
     $('select').formSelect();
 }
@@ -135,10 +129,10 @@ $(".save").click(function () {
 // funciones para eliminar usuario ============================================================================================
 $(".eliminar").click(function () {
     alert();
-    $.ajax({ 
-        url: '/sistema/ManageUsuario', type: 'POST', data: {accion: "delete_usuario", id_usuario: users[index_pos].id },
+    $.ajax({
+        url: '/sistema/ManageUsuario', type: 'POST', data: {accion: "delete_usuario", id_usuario: users[index_pos].id},
         success: function (ress) {
-            
+
         }
     });
 });
@@ -149,6 +143,7 @@ function select_horarios() {
         url: '/sistema/ManageUsuario', type: 'POST',
         data: {accion: "select_lista_horarios"},
         success: function (ress) {
+//            console.log(' hora',ress);
             horarios = JSON.parse(ress);
 //            console.log(horarios);
         }
@@ -156,12 +151,11 @@ function select_horarios() {
 }
 $("#horario").click(function () {
     $('#modal_schedules').modal("open");
+    console.log('Horarios ', horarios);
     $('#h_name_user').text(users[index_pos].nombre);
     $("#select_schedules").empty();
     for (var i in horarios) {
-        if (horarios[i].tipo_admin == users[index_pos].f_administrativo) {
-            $("#select_schedules").append('<option value="' + horarios[i].descripcion + '">' + horarios[i].descripcion + '</option>');
-        }
+        $("#select_schedules").append('<option value="' + horarios[i].descripcion + '">' + horarios[i].descripcion + '</option>');
     }
     $.ajax({
         url: '/sistema/ManageUsuario', type: 'POST',
@@ -204,8 +198,8 @@ $("#insert_horario_especial").click(function () {
     $.ajax({
         url: '/sistema/ManageHorario', type: 'POST',
         data: {
-            accion: "insert_horario_admin", 
-            id_usuario: users[index_pos].id, 
+            accion: "insert_horario_admin",
+            id_usuario: users[index_pos].id,
             dia: $("#select_day").val(),
             entrada: $("#especial_entrada").val(),
             salida: $("#especial_salida").val()
@@ -278,7 +272,7 @@ function update_dataJSON() {
     });
 }
 // funcines para actualizar datos del Usuarios   =======================================================================================
-$("#update_user").click(function (){
+$("#update_user").click(function () {
     var d = {
         accion: "update_data_user",
         id: users[index_pos].id,
@@ -329,7 +323,7 @@ $("#update_user").click(function (){
 });
 
 // Cambiar Puesto =====================================================================================
-$("#puesto").click(function (){
+$("#puesto").click(function () {
     $('#modal_puestos').modal("open");
     $.ajax({
         url: '/sistema/ManageUsuario', type: 'POST', data: {accion: "arcade_select_puesto"},
@@ -367,7 +361,7 @@ function print_vacantes() {
 // click de los puestos
 $(".caja_puesto").delegate(".collection-item", "click", function () {
     $("#modal_user_puestos").modal("open");
-    $("#name_puesto").text( $(this).text() );
+    $("#name_puesto").text($(this).text());
     var _id_puesto = $(this).attr("id");
     $("#id_puesto_modal_puestos").val(_id_puesto);
     $.ajax({
@@ -377,7 +371,7 @@ $(".caja_puesto").delegate(".collection-item", "click", function () {
             print_vacantes();
         }
     });
-    
+
 });
 // UPDATE DATOS DE LA VARIABLE data_vacante y pintar coll\place
 $("#update_puesto").click(function () {
@@ -385,19 +379,19 @@ $("#update_puesto").click(function () {
     // ligica de reasignar o asignar vacante dependiendo del status del usuario
     // estamos trabajndo en esto
     var params = {};
-    if( users[index_pos].f_active === "1" ) {
+    if (users[index_pos].f_active === "1") {
         params = {
-            accion: "reasignar_vacante", 
-            puesto: $("#id_puesto_modal_puestos").val(), 
-            vacante: $(".select_vacante").attr("id"), 
-            usuario_id: users[index_pos].id, 
+            accion: "reasignar_vacante",
+            puesto: $("#id_puesto_modal_puestos").val(),
+            vacante: $(".select_vacante").attr("id"),
+            usuario_id: users[index_pos].id,
             sueldo: "0.00"
         };
-    }else {
+    } else {
         params = {
-            accion: "udpate_id_usuario_vacante", 
-            id_vacante: $(".select_vacante").attr("id"), 
-            id_usuario: users[index_pos].id, 
+            accion: "udpate_id_usuario_vacante",
+            id_vacante: $(".select_vacante").attr("id"),
+            id_usuario: users[index_pos].id,
             sueldo: "0.00"
         };
     }
@@ -424,13 +418,13 @@ $("#btn_nueva_vacante").click(function () {
 
 $("#btn_insert_vacante").click(function () {
     // si el campo esta vacio no inserta nada
-    if($("#name_vacante").val() != "") {
+    if ($("#name_vacante").val() != "") {
         $.ajax({
             url: '/sistema/ManageVacante', type: 'POST',
             data: {accion: "insert_vacante", vacante: $("#name_vacante").val(), id_puesto: $("#id_puesto_modal_puestos").val()},
             success: function (ress) {
                 $.ajax({
-                    url: '/sistema/ManageVacante', type: 'POST', 
+                    url: '/sistema/ManageVacante', type: 'POST',
                     data: {accion: "select_data_vacante", id_puesto: $("#id_puesto_modal_puestos").val()},
                     success: function (ress) {
                         data_vacante = JSON.parse(ress);
@@ -446,13 +440,13 @@ $("#btn_insert_vacante").click(function () {
 $("#btn_delete_vacante").click(function () {
     $("#modal_delete_vacante").modal("open");
 });
-$("#btn_confirm_delete_vacante").click(function () { 
+$("#btn_confirm_delete_vacante").click(function () {
     $.ajax({
-        url: '/sistema/ManageVacante', type: 'POST', data: {accion: "delete_vacante", id_vacante: $(".select_vacante").attr("id") },
+        url: '/sistema/ManageVacante', type: 'POST', data: {accion: "delete_vacante", id_vacante: $(".select_vacante").attr("id")},
         success: function (ress) {
-            
+
             $.ajax({
-                url: '/sistema/ManageVacante', type: 'POST', 
+                url: '/sistema/ManageVacante', type: 'POST',
                 data: {accion: "select_data_vacante", id_puesto: $("#id_puesto_modal_puestos").val()},
                 success: function (ress) {
                     data_vacante = JSON.parse(ress);
@@ -475,21 +469,187 @@ $("#modal_user_puestos").delegate('tbody tr', 'click', function () {
     $("#btn_delete_vacante").removeClass("disabled");
     $("#update_puesto").removeClass("disabled");
 });
-// funcion de filtro =============================================================================================================================
+// funcion de Agregar nuevo Usuario =======================================================================================================
+$("#btn_add_user").click(function () {
+//    let d = {
+//        action: "add_user",
+//        nombre_m: $("#nombre_m").val(),
+//        alias_m: $("#alias_m").val(),
+//        telefono_m: $("#telefono_m").val(),
+//        celular_m: $("#celular_m").val(),
+//        email_m: $("#email_m").val(),
+//        edad_m: $("#edad_m").val(),
+//        sexo_m: $("#sexo_m").val(),
+//        puesto_m: $("#puesto_m").val(),
+//        jefe_m: $("#jefe_m").val()
+//    };
+//    
+    $.ajax({
+        url: 'ControllerUsuario',
+        type: 'POST',
+        dataType: "json",
+        data: {
+            action: "add_user",
+            tipo_user_m: 1,
+            nombre_m: $("#nombre_m").val(),
+            alias_m: $("#alias_m").val(),
+            telefono_m: $("#telefono_m").val(),
+            celular_m: $("#celular_m").val(),
+            email_m: $("#email_m").val(),
+            edad_m: $("#edad_m").val(),
+            sexo_m: $("#sexo_m").val(),
+            puesto_m: $("#puesto_m").val(),
+            jefe_m: $("#jefe_m").val()
+        },
+        success: function (ress) {
+            console.log(ress);
+            console.log(ress['mensaje']);
+            if (ress.response === 'ok') {
+//                $("#nombre_m").val('');
+//                $("#alias_m").val('');
+//                $("#telefono_m").val('');
+//                $("#celular_m").val('');
+//                $("#email_m").val('');
+//                $("#sexo_m").val('');
+//                $("#puesto_m").val('');
+//                $("#jefe_m").val('');
+                $("#sms_agregado").empty();
+                $("#sms_agregado").append(ress['mensaje']);
+            } else {
+                $("#sms_agregado").empty();
+                $("#sms_agregado").append(ress['mensaje']);
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            $("#sms_agregado").empty();
+            $("#sms_agregado").append(error.responseText);
+        }
+    });
+});
+
+$("#btn_add_user_dom").click(function () {
+    $.ajax({
+        url: 'ControllerUsuario',
+        type: 'POST',
+        dataType: "json",
+        data: {
+            action: "add_user_visitador",
+            tipo_user_m: 2,
+            nombre_m: $("#nombre_m_dom").val(),
+            alias_m: $("#alias_m_dom").val(),
+            telefono_m: $("#telefono_m_dom").val(),
+            celular_m: $("#celular_m_dom").val(),
+            email_m: $("#email_m_dom").val(),
+            edad_m: $("#edad_dom").val(),
+
+            estado_m: $("#estado_dom").val(),
+            localidad_m: $("#localidad_dom").val(),
+
+            sexo_m: $("#sexo_m_dom").val(),
+            puesto_m: $("#puesto_m_dom").val(),
+            jefe_m: $("#jefe_m_dom").val()
+        },
+        success: function (ress) {
+            console.log(ress);
+            console.log(ress['mensaje']);
+            if (ress.response === 'ok') {
+                $("#nombre_m_dom").val('');
+                $("#sms_agregado_dom").append(ress['mensaje']);
+            } else {
+                $("#sms_agregado_dom").empty();
+                $("#sms_agregado_dom").append(ress['mensaje']);
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            $("#sms_agregado").empty();
+            $("#sms_agregado").append(error.responseText);
+        }
+    });
+});
+
+
+$('#modal_nuevo_usuario input').click(function () {
+    $("#sms_agregado").empty();
+});
+// funcion de filtro =====================================================================================================================
 function hide_inactives() {
     var inac = document.querySelectorAll(".INACTIVO");
 //    console.l
 //    og(inac);
-    for(var i = 0; i < inac.length; i++) {
+    for (var i = 0; i < inac.length; i++) {
         var row = inac[i];
         row.style.display = 'none';
     }
-};
+}
+;
 
-document.querySelector("#filtro").onkeyup = function () {
-    if(this.value === "") {
+function select_puestos_disponbles() {
+    let params = {
+        action: 'select_puestos_disponobles'
+    };
+    $.ajax({
+        type: "POST",
+        url: "ControllerUsuario",
+        data: params,
+        dataType: "json",
+        success: function (response) {
+            $("#puesto_m").empty();
+            $("#puesto_m_dom").empty();
+
+            $("#puesto_m").append(`<option value="0">Selecciona</option>`);
+            $("#puesto_m_dom").append(`<option value="0">Selecciona</option>`);
+
+            for (let item of response) {
+                $("#puesto_m").append(`<option value="${item.id_puesto}">${item.puesto}</option>`);
+                $("#puesto_m_dom").append(`<option value="${item.id_puesto}">${item.puesto}</option>`);
+            }
+            $('select').formSelect();
+            console.log(response);
+//            console.log(response);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+
+function select_jefes_puesto() {
+    let params = {
+        action: 'select_jefes_puesto'
+    };
+    $.ajax({
+        type: "POST",
+        url: "ControllerUsuario",
+        data: params,
+        dataType: "json",
+        success: function (response) {
+            $("#jefe_m_dom").empty();
+            $("#jefe_m").empty();
+
+            $("#jefe_m_dom").append(`<option value="0">Selecciona</option>`);
+            $("#jefe_m").append(`<option value="0">Selecciona</option>`);
+
+            for (let item of response) {
+                $("#jefe_m_dom").append(`<option value="${item.id}">${item.nombre}</option>`);
+                $("#jefe_m").append(`<option value="${item.id}">${item.nombre}</option>`);
+            }
+            $('select').formSelect();
+            console.log(response);
+//            console.log(response);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+document.querySelector("#buscador_cuentas_gestor").onkeyup = function () {
+    if (this.value === "") {
         hide_inactives();
-    }else {
+    } else {
         $TableFilter("#tabla_usuarios", this.value);
     }
 };
@@ -510,3 +670,4 @@ $TableFilter = function (id, value) {
         }
     }
 };
+

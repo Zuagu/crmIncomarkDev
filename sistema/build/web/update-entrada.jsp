@@ -9,7 +9,7 @@
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link rel="stylesheet" type="text/css" media="screen" href="movil/materialize/css/materialize.min.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/css/materialize.min.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
@@ -332,8 +332,8 @@
 
 
         <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="movil/materialize/js/jquery-3.3.1.js"></script>
-        <script type="text/javascript" src="movil/materialize/js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="js/js/materialize.min.js"></script>
         <script type="text/javascript" src="js/js_movil_entradas.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {

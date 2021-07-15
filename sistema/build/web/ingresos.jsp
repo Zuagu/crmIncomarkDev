@@ -6,47 +6,24 @@
 
 
         <!--ICONS PARA MATERIALIZE-->
-        <link rel="shortcut icon" href="http://leimihost.com/mx/images/favicon.ico" />
+        <link rel="shortcut icon" href="image/logoInco.fw.png"/>
         <link rel="stylesheet" type="text/css" href="css/arcade-style-frame.css" media="screen">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--ICONS PARA MATERIALIZE-->
 
-        <!--ARCADE CSS-->
-        <!--        <link type="text/css" rel="stylesheet" href="css/arcade-responsive-default.css">
-                <link type="text/css" rel="stylesheet" href="css/arcade-responsive-740.css">
-       
-                <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
-                <link type="text/css" rel="stylesheet" href="styles/all.css">
-                <link type="text/css" rel="stylesheet" href="styles/main.css">-->
-        <!--ARCADE CSS-->
-
         <!-- INICIA CALENDARIO -->
         <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>       
-        <link rel="stylesheet" href="datepicker/jquery-ui.css">
-        <script src="datepicker/jquery-ui.js"></script>
-        <!--    <script>
-                    $(function () {
-                        $(".datepicker").datepicker({changeMonth: true, changeYear: true, numberOfMonths: 1});
-                    });
-                </script>-->
-        <!--TERMINA CALENDARIO -->
-
+        
         <!--ARCADE JS-->
         <script type="text/javascript" src="js/arcade-fecha.js"></script>
         <script type="text/javascript" src="js/arcade-alfanumerico.js"></script>
         <script type="text/javascript" src="js/arcade-curp.js"></script>
 
         <!--MATERIALIZE-->
-        <script type="text/javascript" src="materialize/js/materialize.js"></script>
-        <link rel="stylesheet" type="text/css" href="materialize/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="css/arcade-nav.css">
+        <script type="text/javascript" src="js/js/materialize.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/css/materialize.min.css">
         <!--MATERIALIZE-->
 
-        <!-- HIGHCHARTS-->
-        <script type="text/javascript" src="highcharts/highcharts.js"></script>
-        <script type="text/javascript" src="highcharts/pareto.js"></script> 
-        <script type="text/javascript" src="highcharts/exporting.js"></script>
-        <!-- HIGHCHARTS-->
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -57,9 +34,6 @@
             td, th {
                 padding: 3px 13px;
             }
-            /*            thead {
-                            border-bottom: 1px solid #fff;
-                        }*/
             .error2.select-wrapper input.select-dropdown{
                 border-bottom: 1px solid #f44336;
             }
@@ -1872,7 +1846,7 @@
             //==================================================================
             $(document).ready(function () {
                 select_solicitudes_tabla("", "listado_solicitudes");
-                $('select').material_select();
+                $('select').formSelect();
                 var MyDate = new Date();
                 var MyDateString;
                 MyDate.setDate(MyDate.getDate());

@@ -3,33 +3,35 @@
 <html lang="es">
     <head>
         <meta charset="utf-8">
-        <link rel="shortcut icon" href="image/12.png" />
+        <link rel="shortcut icon" href="image/logoInco.fw.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Usuarios</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="css/css/usuarios.css">
+        <link rel="stylesheet" type="text/css" href="css/css/style_gestor.css">
+
     </head>
 
     <body>
-        <nav class="grey darken-4">
-            <div class="nav-wrapper icon_nav">
-                <a href="#!" id="menu"  class="brand-logo left"><i class="material-icons icon_nav icon_menu">menu</i></a>
-                <input id="filtro" class="search center-align grey darken-2" type="text" placeholder="Buscar">
-                <ul class="icon_nav right">
-                    <a href="mobile.html"><i class="material-icons icon_nav">more_vert</i></a>
-                </ul>
-            </div>
-        </nav>
-        <!--div lista de usuarios-->
+        <jsp:include page="header.jsp"/>
+
         <div class="row">
-            <div class="col s12 m10 offset-m1">
+            <div class="col s10 m10 l10 offset-s1 options offset-m1 offset-l1 right-align">
+                <div class="col s12 m12 l12">
+                    <a class="waves-effect waves-light btn blue modal-trigger add_user" href="#modal_tipo_usuarios">Nuevo</a>
+                    <!--<a class="waves-effect waves-light btn blue modal-trigger add_user" href="#modal_nuevo_usuario">Nuevo</a>-->
+                </div>
+            </div>
+
+            <div class="col s10 m10 l10 offset-s1 offset-m1 offset-l1">
                 <div id="table_user" class="col s12 m12 table_user z-depth-2 inner white">
 
                 </div>
             </div>
         </div>
+
 
         <!-- Modal datos del usuario -->
         <div id="modal1" class="modal inner">
@@ -46,7 +48,6 @@
                             <ul id="tabs-swipe-demo" class="tabs">
                                 <li class="tab col s2"><a class="active" href="#test-swipe-1">Datos</a></li>
                                 <li class="tab col s2"><a href="#test-swipe-2">Archivo</a></li>
-                                <li class="tab col s3"><a href="#test-swipe-3">Contrato</a></li>
                                 <li class="tab col s3"><a href="#test-swipe-4">Estadisticas</a></li>
                                 <li class="tab col s2"><a href="#test-swipe-5">Entradas</a></li>
                             </ul>
@@ -203,74 +204,6 @@
                                 </p>
                             </div>
                         </div>
-                        <div id="test-swipe-3" class="col s12 div_tabs">
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <a href="#" onclick="alert_format(users[index_pos].contrato, $(this).text(), 'contrato')">
-                                        <img src="image/users/CONTRATO.png" alt="" width="100%">
-                                        Contrato
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <a href="#" onclick="alert_format(users[index_pos].memorandum, $(this).text(), 'memorandum')">
-                                        <img src="image/users/MEMORANDUM.png" alt="" width="100%">
-                                        Memorandum
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <a href="#" onclick="alert_format(users[index_pos].reglamento, $(this).text(), 'reglamento')">
-                                        <img src="image/users/REGLAMENTO.png" alt="" width="100%">
-                                        Reglamento
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <input type="hidden" class="data_format" value="suspencion">
-                                    <a href="#" onclick="alert_format(users[index_pos].suspencion, $(this).text(), 'suspencion')">
-                                        <img src="image/users/SUSPENCION.png" alt="" width="100%">
-                                        Suspencion
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <a href="#" onclick="alert_format(users[index_pos].acta_administrativa, $(this).text(), 'acta_administrativa')">
-                                        <img src="image/users/ACTA_ADMINISTRATIVA.png" alt="" width="100%">
-                                        Acta Administrativa
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <a href="#" onclick="alert_format(users[index_pos].ausencia_laboral, $(this).text(), 'ausencia_laboral')">
-                                        <img src="image/users/AUSENCIA_LABORAL.png" alt="" width="100%">
-                                        Ausencia Laboral
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <a href="#" onclick="alert_format(users[index_pos].carta_recomendacion, $(this).text(), 'carta_recomendacion')">
-                                        <img src="image/users/CARTA_RECOMENDACION.png" alt="" width="100%">
-                                        Carta de Recomendacion
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col s6 m3 cont_doc">
-                                <div class="col s10 offset-s1 center-align hoverable waves-effect card-panel format">
-                                    <a href="#" onclick="alert_format(users[index_pos].constancia_laboral, $(this).text(), 'constancia_laboral')">
-                                        <img src="image/users/CONSTANCIA_LABORAL.png" alt="" width="100%">
-                                        Constancia Laboral
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
                         <div id="test-swipe-4" class="col s12 div_tabs">
                             <div class="col s6 m3 cont_doc">
 
@@ -411,7 +344,7 @@
 
                     <div class="col s12 m10 offset-m1 caja_puesto inner">
                         <ul class="collapsible left-align">
-                            
+
                         </ul>
                     </div>
                     <div class="col s10 offset-s1 right-align box_btn">
@@ -422,10 +355,10 @@
                 </div>
             </div>
         </div> 
-        
+
         <div id="modal_user_puestos" class="modal">
             <div class="modal-content center-align">
-                
+
                 <div class="row">
                     <a id="btn_close_vacantes" class="waves-effect waves-teal z-depth-1 hoverable right"><i class="material-icons black-text">close</i></a>
                     <h5 class="center-align"><b id="name_puesto"></b></h5>
@@ -441,13 +374,13 @@
                                 </tr>
                             </thead>
                             <tbody id="list_vacantes">
-                                
+
                             </tbody>
                         </table>
-                        
+
                     </div>
                     <div class="col s10 offset-s1 right-align box_btn">
-                        
+
                         <a id="btn_delete_vacante" class="waves-effect waves-teal red disabled btn-small">Eliminar</a>
                         <a id="btn_nueva_vacante" class="waves-effect waves-teal blue btn-small">Nuevo</a>
                         <a id="update_puesto" class="waves-effect waves-teal green disabled btn-small">Asignar</a>
@@ -456,7 +389,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="modal_nueva_vacante" class="modal">
             <div class="modal-content center-align">
                 <div class="row">
@@ -472,7 +405,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="modal_delete_vacante" class="modal">
             <div class="modal-content center-align">
                 <div class="row">
@@ -484,9 +417,174 @@
                 </div>
             </div>
         </div>
-        
+        <div id="modal_nuevo_usuario" class="modal">
+            <div class="modal-content center-align">
+                <div class="row">
+                    <div class="col s12 m10 offset-m1 white">
+                        <h5 class="center-align"><b>Nuevo Usuario</b></h5>
+                        <h6 id="sms_agregado"class="center-align"></h6>
+                    </div>
+
+                    <div class="col s12 m10 l10 offset-l1 offset-s1">
+                        <div class="input-field col s6">
+                            <input  id="nombre_m" type="text" class="validate">
+                            <label for="nombre_m">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input  id="alias_m" type="text" class="validate">
+                            <label for="alias_m">Alias</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input  id="telefono_m" type="text" class="validate">
+                            <label for="telefono_m">Telefono</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="celular_m" type="text" class="validate">
+                            <label for="celular_m">Celular</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="email_m" type="text" class="validate">
+                            <label for="email_m">Email</label>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                            <input id="edad_m" type="text" class="validate">
+                            <label for="edad_m">Edad</label>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                            <select id="sexo_m">
+                                <option value="H">HOMBRE</option>
+                                <option value="M">MUJER</option>
+                            </select>
+                            <label for="sexo_m">Sexo</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="puesto_m">
+                                <option value="H">OPERACION</option>
+                                <option value="M">ADMINISTRATIVO</option>
+                            </select>
+                            <label for="puesto_m">Puesto</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="jefe_m">
+                            </select>
+                            <label for="jefe_m">Jefe inmediato</label>
+                        </div>
+                        <div class="col s10 offset-s1 right-align box_btn">
+                            <a class="waves-effect modal-close waves-teal red btn-small">Cancelar</a>
+                            <a id="btn_add_user" class="waves-effect waves-teal blue btn-small">Crear</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="modal_nuevo_usuario_domiciliario" class="modal">
+            <div class="modal-content center-align">
+                <div class="row">
+                    <div class="col s12 m10 offset-m1">
+                        <h5 class="center-align"><b>Nuevo Domiciliario</b></h5>
+                        <h6 id="sms_agregado_dom"class="center-align"></h6>
+                    </div>
+
+                    <div class="col s12 m10 l10 offset-l1 offset-s1">
+                        <div class="input-field col s6">
+                            <input  id="nombre_m_dom" type="text" class="validate">
+                            <label for="nombre_m_dom">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input  id="alias_m_dom" type="text" class="validate">
+                            <label for="alias_m_dom">Alias</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input  id="telefono_m_dom" type="text" class="validate">
+                            <label for="telefono_m_dom">Telefono</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="celular_m_dom" type="text" class="validate">
+                            <label for="celular_m_dom">Celular</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="email_m_dom" type="text" class="validate">
+                            <label for="email_m_dom">Email</label>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                            <input id="edad_dom" type="text" class="validate">
+                            <label for="edad_dom">Edad</label>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                            <input id="estado_dom" type="text" class="validate">
+                            <label for="estado_dom">Estado</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="localidad_dom" type="text" class="validate">
+                            <label for="localidad_dom">Localidad</label>
+                        </div>
+                        
+                        
+                        
+                        <div class="input-field col s6">
+                            <select id="sexo_m_dom">
+                                <option value="H">HOMBRE</option>
+                                <option value="M">MUJER</option>
+                            </select>
+                            <label>Sexo</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="puesto_m_dom">
+                                <option value="H">OPERACION</option>
+                                <option value="M">ADMINISTRATIVO</option>
+                            </select>
+                            <label>Puesto</label>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                            <select id="jefe_m_dom"></select>
+                            <label>Jefe inmediato</label>
+                        </div>
+                        <div class="col s10 offset-s1 right-align box_btn">
+                            <a class="waves-effect modal-close waves-teal red btn-small">Cancelar</a>
+                            <a id="btn_add_user_dom" class="waves-effect waves-teal blue btn-small">Crear</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="modal_tipo_usuarios" class="modal">
+
+                <div class="modal-content">
+                    <div class="col s12 m12 l12 input-field center">
+                        <h3>Tipo de usuario</h3>
+                    </div>
+                    
+                    <div class="col s12 m12 l12 input-field center">
+                        <div id="gestor_call_center" class="col s4 opcion_user valign-wrapper offset-s1 blue hoverable">
+                            <h4 class="center-align">Call Center</h4>
+                        </div>
+                        <div id="gestor_domiciliario" class="col s4 offset-s2 opcion_user valign-wrapper blue hoverable">
+                            <h4 class="center-align">Domiciliario</h4>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+
+
+
         <script src="js/js/jquery-2.2.4.min.js"></script>
         <script src="js/js/materialize.min.js"></script>
+        <script src="js/js/menu.js"></script>
         <script src="js/js/users.js"></script>
     </body>
 

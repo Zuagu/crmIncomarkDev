@@ -298,7 +298,7 @@
                     <div class="input-field col s12 m4 l4 offset-m1 offset-l1">
                         <input id="fecha_convenio" type="text" class="datepicker" placeholder="Fecha del convenio">
                     </div>
-                    <div class="input-field col s12 m4 l4">
+                    <div class="input-field col s12 m4 l4 offset-m2 offset-l2">
                         <input id="password_convenio" type="password" class="" placeholder="Ingresa Password">
                     </div>
                     <div class="input-field col s12 m4 l4 offset-m1 offset-l1">
@@ -308,9 +308,6 @@
                             <option value="2">PAGO PARCIAL</option>
                             <option value="3">PLAN PAGO INICIAL</option>
                             <option value="4">PLAN PAGO RECURENTE</option>
-                            <option value="5"></option>
-                            <option value="6"></option>
-                            <option value="7"></option>
                         </select>
                     </div>
                     <div id="CAJA_SEMANAS_PAGO" class="input-field col s12 m4 l4 hide">
@@ -398,6 +395,8 @@
                     <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
                     <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
                     <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                    <li><a class="btn-floating purple"><i class="material-icons">announcement</i></a></li>
+                    <li><a class="btn-floating orange"><i class="material-icons">book</i></a></li>
                 </ul>
             </div>
 

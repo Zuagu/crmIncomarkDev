@@ -360,6 +360,54 @@
         <servlet-name>ControllerReportesAzteca</servlet-name>
         <servlet-class>callcenter.controller.ControllerReportesAzteca</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControllerUploadFilesPagos</servlet-name>
+        <servlet-class>callcenter.controller.ControllerUploadFilesPagos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerEquiposAzteca</servlet-name>
+        <servlet-class>callcenter.controller.ControllerEquiposAzteca</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerUploadGestiones</servlet-name>
+        <servlet-class>callcenter.controller.ControllerUploadGestiones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerUploadFilesEquipos</servlet-name>
+        <servlet-class>callcenter.controller.ControllerUploadFilesEquipos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerAsignacionesUsuarios</servlet-name>
+        <servlet-class>callcenter.controller.ControllerAsignacionesUsuarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerFileUploadGestiones</servlet-name>
+        <servlet-class>callcenter.controller.ControllerFileUploadGestiones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerDataCuentaAxtel</servlet-name>
+        <servlet-class>callcenter.controller.ControllerDataCuentaAxtel</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerSolicitud</servlet-name>
+        <servlet-class>callcenter.controller.ControllerSolicitud</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerUploadFileVisitas</servlet-name>
+        <servlet-class>callcenter.controller.ControllerUploadFileVisitas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerVacantes</servlet-name>
+        <servlet-class>callcenter.controller.ControllerVacantes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerSucursales</servlet-name>
+        <servlet-class>callcenter.controller.ControllerSucursales</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerProcesarCartera</servlet-name>
+        <servlet-class>callcenter.controller.ControllerProcesarCartera</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ManageCategorias</servlet-name>
         <url-pattern>/ManageCategorias</url-pattern>
@@ -708,13 +756,61 @@
         <servlet-name>ControllerReportesAzteca</servlet-name>
         <url-pattern>/ControllerReportesAzteca</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerUploadFilesPagos</servlet-name>
+        <url-pattern>/ControllerUploadFilesPagos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerEquiposAzteca</servlet-name>
+        <url-pattern>/ControllerEquiposAzteca</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerUploadGestiones</servlet-name>
+        <url-pattern>/ControllerUploadGestiones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerUploadFilesEquipos</servlet-name>
+        <url-pattern>/ControllerUploadFilesEquipos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerAsignacionesUsuarios</servlet-name>
+        <url-pattern>/ControllerAsignacionesUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerFileUploadGestiones</servlet-name>
+        <url-pattern>/ControllerFileUploadGestiones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerDataCuentaAxtel</servlet-name>
+        <url-pattern>/ControllerDataCuentaAxtel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerSolicitud</servlet-name>
+        <url-pattern>/ControllerSolicitud</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerUploadFileVisitas</servlet-name>
+        <url-pattern>/ControllerUploadFileVisitas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerVacantes</servlet-name>
+        <url-pattern>/ControllerVacantes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerSucursales</servlet-name>
+        <url-pattern>/ControllerSucursales</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerProcesarCartera</servlet-name>
+        <url-pattern>/ControllerProcesarCartera</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <display-name>
-        INCOMARK CALL CENTER.
+        System Call Center
     </display-name>
     <servlet-mapping>
         <servlet-name>ControllerEquipos</servlet-name>

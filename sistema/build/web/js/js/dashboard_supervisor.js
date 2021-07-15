@@ -1,41 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$(document).ready(function () {
-//iniciar el dropdown del menu
-    $('select').formSelect();
-    $('.modal').modal();
-    $(".dropdown-trigger").dropdown({constrainWidth: false});
-    $('.sidenav').sidenav();
-    document.getElementById('foto_perfil').src = "http://gruposicsa.com/fotos/" + id_usuario + ".jpg";
-    $(".sidenav").empty();
-    // funcion que pinta el menu
-    for (indice in menu) {
-        $(".sidenav").append('<li><a onclick="verSubmenu(' + indice + ')"><i class="material-icons white-icon tooltipped" data-position="right"  data-tooltip="' + menu[indice].name + '">' + menu[indice].icono + '</i></a></li>');
-    }
-    $('.tooltipped').tooltip({margin: 20});
-    $('.tabs').tabs();
-    $('.datepicker').datepicker({
-        container: "body",
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15, // Creates a dropdown of 15 years to control year,
-        today: 'Today',
-        clear: 'Clear',
-        close: 'Ok',
-        format: 'yyyy-mm-dd',
-        closeOnSelect: false // Close upon selecting a date,
-    });
-    $('.timepicker').timepicker({
-        default: 'now', // Set default time: 'now', '1:30AM', '16:30'
-        fromnow: 0, // set default time to * milliseconds from now (using with default = 'now')
-        twelvehour: false, // Use AM/PM or 24-hour format
-        donetext: 'OK', // text for done-button
-        cleartext: 'Clear', // text for clear-button
-        canceltext: 'Cancel', // Text for cancel-button,
-        container: "body", // ex. 'body' will append picker to body
-        autoclose: false, // automatic close timepicker
-        ampmclickable: true, // make AM PM clickable
-        aftershow: function () {} //Function for after opening timepicker
-    });
-});
+
 window.onload = function () {
     // select_gestor_tabla(id_usuario, id_puesto_usuario , "", "tbody_listado_gestores");
     select_valores_usuarios();
