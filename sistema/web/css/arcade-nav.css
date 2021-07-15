@@ -1,0 +1,30 @@
+/*
+    Created on : 11-oct-2016, 21:26:55
+    Author     : Luis Cortez
+    Team       : ARCADE Software
+*/
+/* Estilos específicos para impresora */
+
+#ayuda_nav{
+    padding-bottom: 30px !important;
+    margin-top: 0px!important;;
+    height: 36px !important;
+    line-height: 35px !important;;
+    color:black;
+}
+.ayuda_name{
+    margin-left:1% !important;;
+    font-size:20px !important;;
+    color:black !important;;
+
+}
+
+#nav_i{
+    cursor: pointer;
+    color:black;
+    height:36px;
+    line-height:38px;
+}
+#roboto{
+    font-family:Roboto;
+}

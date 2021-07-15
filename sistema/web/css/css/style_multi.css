@@ -1,0 +1,341 @@
+
+.img_log, #foto_perfil{
+    width: 27px;
+    margin: 12%;  
+    margin-top: 3px;
+}
+nav{
+    height: 35px;
+    line-height: 33px;
+}
+nav .nav-wrapper i {
+    height: 30px;
+    line-height: 33px;
+}
+
+.sidenav li > a {
+    cursor: pointer !important; 
+}
+
+.sidenav .collection a.collection-item {
+    color: #707982 !important; 
+}
+
+.contenedor_buscar {
+    display: inline-block;
+    line-height: 1.7rem;
+    margin-top: 4px;
+    margin-left:10px !important;
+    border-radius: 4px !important;
+    width: 350px;
+    border-radius: 1rem !important;
+}
+.contenedor_buscar input{
+    height: 1.7rem !important;
+    width:100% !important;
+    border: 1px solid #2196f3 !important;
+    margin: 0px !important;
+    border-radius: 1rem !important;
+}
+nav .btn-flat {
+    padding: 0px 0px !important;
+}
+
+#info_gestor input{
+    margin: 0px !important;
+    height: 1.2rem !important;
+    font-size: 14px;
+    color: #000;
+}
+
+#info_gestor .input-field {
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+input.invalid[type="text"]:not(.browser-default) {
+    border-bottom: 1px solid #000;
+    -webkit-box-shadow: 0 1px 0 0 #000;
+    box-shadow: 0 0px 0 0 #000;
+}
+
+input[type="text"]:not(.browser-default).validate + label {
+    color: #000;
+}
+
+#info_gestor .input-field {
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+}
+#info_gestor_secundario input{
+    margin: 0px !important;
+    height: 1rem !important;
+    font-size: 14px;
+    color: #000;
+}
+
+#info_gestor_secundario .input-field {
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+}
+
+#div_gestor_gestion input{
+    margin: 0px !important;
+    height: 1.43rem !important;
+    font-size: 14px;
+    color: #000;
+}
+
+.div_data_aval .coll_2 {
+    border: 0px solid #e0e0e0;
+}
+
+.div_data_aval ul{
+    display: inline-block;
+}
+.div_data_aval ul .btn-small {
+    margin: 5px 0px;
+}
+.div_data_aval .coll_1 {
+    width: 80%;
+}
+.div_data_aval .coll_2 {
+    width: 19%;
+}
+
+#div_gestor_gestion .input-field {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+#div_gestor_gestion {
+    margin-top: 7px;
+    height: 164px;
+    border-radius: 1rem;
+}
+.div_gestor_gestion {
+    border-radius: 1rem;
+}
+
+#gestion {
+    height: 110px !important;
+    overflow: auto !important;
+}
+
+#div_input_gestor_tiempos input{
+    margin: 0px !important;
+    height: 1.43rem !important;
+    font-size: 14px;
+    color: #000;
+}
+.div_input_gestor_tiempos {
+    margin-top: 0px;
+    border-radius: 1rem;
+}
+#div_input_gestor_tiempos .input-field {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+
+
+
+.marcacion_directa .collection .collection-item a {
+    margin-left: 1rem;
+}
+.marcacion_directa .collection .collection-item {
+    padding: 1px 20px;
+    font-size: 14px;
+}
+.marcacion_directa .small {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+.marcacion_directa {
+    margin-top: 7px;
+    border-radius: 1rem;
+}
+
+.datos_marcacion_directa {
+    margin: .5rem 0 0.2rem 0 !important;
+}
+
+.div_btn_act_datos a {
+    margin: 11px 20px;
+}
+
+#editar_marcacion_directa input{
+    margin: 0px !important;
+    height: 1.43rem !important;
+    font-size: 14px;
+    color: #000;
+}
+#editar_marcacion_directa .input-field {
+    margin-top: 0.87rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+.div_data_aval .input-field {
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.2rem !important;
+}
+.div_data_aval input{
+    margin: 0px !important;
+    height: 1.43rem !important;
+    font-size: 14px;
+    color: #000;
+}
+
+
+
+
+.margin_top_7px {
+    margin-top: 7px;
+}
+
+
+
+.div_tabs {
+    margin-top: 7px;
+    border-radius: 1rem;
+}
+
+.div_gestor_contenido {
+    height: 235px;
+    overflow: auto;
+    padding: 0 1px !important;
+    border-radius: 1rem;
+}
+
+.div_gestor_contenido td,.div_gestor_contenido th {
+    padding: 5px 5px;
+}
+
+.datos_marcacion_directa label {
+    color: black;
+    font-weight: bold;
+}
+
+.margen_top1_5 {
+    margin-top: 1.5rem !important;
+}
+
+/* CSS asignaciones_usuario.jsp */
+.altura_max_modal_asig {
+    height: 40vh;
+    max-height: 40vh;
+    overflow: auto;
+}
+
+.actualizar_todos {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.div_gerencias {
+    height: 60vh;
+    max-height: 60vh;
+    overflow: auto;
+}
+
+.div_btn_pwd .input-field {
+    margin-bottom: 0.1rem;
+}
+
+.tabla_resultado_busqueda {
+    overflow: auto;
+    height: 45vh;
+    margin-bottom: 1rem;
+}
+
+body {
+    background-color: #90caf9 !important;
+}
+.div_input_gestor_info {
+    border-radius: 1rem;
+}
+.div_info_secundaria {
+    border-radius: 1rem;
+}
+.tabs {
+    background-color: #fff0;
+}
+
+.modal {
+    border: 2px solid #90caf9;
+    border-radius: 1rem;
+    width:70%;
+}
+.slide-out a i {
+    font-size: 14px !important;
+}
+.btn, .btn-small{
+    border-radius: 1rem;
+}
+.btn_secundario{
+    color: #2196F3;
+    background-color: #FFF !important;
+    border: 1px solid #2196F3;
+}
+.modal{
+    overflow: visible!important; 
+}
+#div_ref_tel{
+    overflow: auto;
+    height: 237px;
+}
+#datos_marcacion_directa th, #datos_marcacion_directa td {
+    padding: 5px 5px;
+    font-size: 14px;
+
+}
+#datos_marcacion_directa tr th{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #424242;
+}
+.tabla_resultado_busqueda tr th{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+}
+
+.numero_marcado {
+    color:#4caf50;
+    font-weight: bold;
+    border: 1px solid;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.color_CUMPLIDO {
+    background-color: #69f0ae;
+}
+.color_VIGENTE {
+    background-color: #ffff8d;
+}
+.color_INCUMPLIDO {
+    background-color: #ff9e80;
+}
+
+
+/*css para scrool nada mas funciona para google chrome*/
+.inner::-webkit-scrollbar {
+    width: 5px;
+    height: 0px;
+    background-color: rgb(202 202 202 / 50%);
+}
+.inner::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 0px;
+    border-radius: 10px;
+    background: #0d47a1;
+}
+
+#div_reportar_pago {
+    overflow: auto !important;
+    max-height: 60vh;
+}
